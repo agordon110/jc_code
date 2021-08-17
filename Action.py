@@ -22,10 +22,11 @@ class Action(object):
         error_string = None
         try:
             with self.lock:
-                action, actionTime = self.validate_action(json_string_in)
+                action, action_time = self.validate_action(json_string_in)
+                # Create the array if missing
                 if action not in self.actions_data.keys():
                     self.actions_data[action] = []
-                self.actions_data[action].append(actionTime)
+                self.actions_data[action].append(action_time)
         except Exception as err:
             error_string = str(err)
         return error_string

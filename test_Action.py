@@ -23,19 +23,23 @@ class TestAction(unittest.TestCase):
         """Start of a test for addAction"""
         self.action.action_types = ['jump', 'run']
         # Verify we decode dictionary by feeding it an array
-        self.assertIsNotNone(self.action.addAction(json.dumps(self.json_array)))
+        self.assertIsNotNone(self.action.addAction(
+            json.dumps(self.json_array)))
         # Basic set of tests for actions. No where near exhaustive
         self.assertIsNone(self.action.addAction(json.dumps(self.good_json)))
         # try with no action
         self.assertIsNone(self.action.addAction(json.dumps(self.good_json)))
         # try with an empty action
-        self.assertIsNone(self.action.addAction(json.dumps(self.empty_json)))
-        
+        self.assertIsNotNone(self.action.addAction(
+            json.dumps(self.empty_json)))
+
         # Basic set of time validation
         # Time as a string
-        self.assertIsNotNone(self.action.addAction(json.dumps(self.time_string)))
+        self.assertIsNotNone(self.action.addAction(
+            json.dumps(self.time_string)))
         # try with a negative int
-        self.assertIsNone(self.action.addAction(json.dumps(self.negative_time)))
+        self.assertIsNone(self.action.addAction(
+            json.dumps(self.negative_time)))
 
     def test_getStats(self):
         """Test getStats by feeding it a know quantity"""
@@ -43,12 +47,14 @@ class TestAction(unittest.TestCase):
         self.action.addAction(json.dumps(self.good_json))
         # getStat returns an array and in testing we only care about enty 0
         results_back = json.loads(self.action.getStats())[0]
-        self.assertEqual(results_back.get('action'), self.good_json.get('action'))
+        res = 'action'
+        self.assertEqual(results_back.get(res), self.good_json.get(res))
 
     def test_validate_action(self):
         self.action.action_types = ['jump', 'run']
         json_string = json.dumps(self.good_json)
-        self.assertEqual(self.action.validate_action(json_string), (u'jump', 57))
+        jp = 'jump'
+        self.assertEqual(self.action.validate_action(json_string), (jp, 57))
 
     def test_create_json_string(self):
         self.action.action_types = ['jump', 'run']

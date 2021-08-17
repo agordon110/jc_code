@@ -73,11 +73,11 @@ class Action(object):
         action_dictionary['time'] = random.randint(0, 150)
         return(json.dumps(action_dictionary))
 
-    def average_stats(self, arrayIn):
+    def average_stats(self, array_in):
         """Av3rage the stats for returning.
         Takes a list of intigers, return the sum or None"""
-        if len(arrayIn) != 0:
-            return sum(arrayIn) / len(arrayIn)
+        if len(array_in) != 0:
+            return sum(array_in) / len(array_in)
         return None
 
     def get_average_for_action(self, action_in):

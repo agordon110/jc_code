@@ -45,7 +45,7 @@ class Action(object):
         • Contains the correct keys
         • Validates the action
         • Check time for positive int
-        Returns the validated avtion and time"""
+        Returns the validated action and time"""
         self.json_data = json.loads(action_string)
         if not isinstance(self.json_data, dict):
             raise TypeError("String did not generate a dictionary")

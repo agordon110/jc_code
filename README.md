@@ -13,3 +13,12 @@ To run the demo script
 To run unittest framework tests
 
 	python test_Action.py_
+
+# Design Decisions
+Chose to not accept any arbitrary actions and chose to create an allow list in the Action object.
+
+addAction only records new actions. Chose to have the calculations generated in the getStats method
+
+# Testing
+Basic testing using python unittest framework.
+Linting using flake8

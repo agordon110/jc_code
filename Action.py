@@ -61,7 +61,7 @@ class Action(object):
             raise TypeError("Action type array is empty")
         if action not in self.action_types:
             raise ValueError("Action %s not in action types" % action)
-        if not isinstance(time, int):
+        if not isinstance(time, int) and time > 0:
             raise ValueError("Bad Time %s" % time)
         return action, time
 

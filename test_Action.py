@@ -21,7 +21,6 @@ class TestAction(unittest.TestCase):
 
     def test_addAction(self):
         """Start of a test for addAction"""
-        self.action.action_types = ['jump', 'run']
         # Verify we decode dictionary by feeding it an array
         self.assertIsNotNone(self.action.addAction(
             json.dumps(self.json_array)))
@@ -43,7 +42,6 @@ class TestAction(unittest.TestCase):
 
     def test_getStats(self):
         """Test getStats by feeding it a known quantity"""
-        self.action.action_types = ['jump', 'run']
         self.action.addAction(json.dumps(self.good_json))
         # getStat returns an array and in testing we only care about enty 0
         results_back = json.loads(self.action.getStats())[0]
@@ -51,13 +49,11 @@ class TestAction(unittest.TestCase):
         self.assertEqual(results_back.get(res), self.good_json.get(res))
 
     def test_validate_action(self):
-        self.action.action_types = ['jump', 'run']
         json_string = json.dumps(self.good_json)
         jp = 'jump'
         self.assertEqual(self.action.validate_action(json_string), (jp, 57))
 
     def test_create_json_string(self):
-        self.action.action_types = ['jump', 'run']
         self.assertEqual(type(self.action.create_json_string()), type(str()))
 
     def test_avarage_stats(self):
@@ -66,7 +62,6 @@ class TestAction(unittest.TestCase):
         self.assertIsNone(self.action.average_stats([]))
 
     def test_get_avarage_for_action(self):
-        self.action.action_types = ['jump', 'run']
         self.action.addAction(json.dumps(self.good_json))
         result_dict = self.action.get_average_for_action("jump")
         self.assertNotEqual(result_dict, {'action': 'jump', 'time': 57})

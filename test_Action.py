@@ -61,14 +61,14 @@ class TestAction(unittest.TestCase):
         self.assertEqual(type(self.action.create_json_string()), type(str()))
 
     def test_avarage_stats(self):
-        self.assertEqual(self.action.avarage_stats([1, 2, 3, 4, 5]), 3)
-        self.assertNotEqual(self.action.avarage_stats([1, 2, 3, 4, 27]), 3)
-        self.assertIsNone(self.action.avarage_stats([]))
+        self.assertEqual(self.action.average_stats([1, 2, 3, 4, 5]), 3)
+        self.assertNotEqual(self.action.average_stats([1, 2, 3, 4, 27]), 3)
+        self.assertIsNone(self.action.average_stats([]))
 
     def test_get_avarage_for_action(self):
         self.action.action_types = ['jump', 'run']
         self.action.addAction(json.dumps(self.good_json))
-        result_dict = self.action.get_avarage_for_action("jump")
+        result_dict = self.action.get_average_for_action("jump")
         self.assertNotEqual(result_dict, {'action': 'jump', 'time': 57})
 
 

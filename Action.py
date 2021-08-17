@@ -31,12 +31,12 @@ class Action(object):
         return error_string
 
     def getStats(self):
-        """Calculates the avarages of the current actions and returns a
+        """Calculates the averages of the current actions and returns a
         JSON string representation of the array of actions"""
         array_back = []
         with self.lock:
             for local_action in self.actions_data.keys():
-                array_back.append(self.get_avarage_for_action(local_action))
+                array_back.append(self.get_average_for_action(local_action))
         return json.dumps(array_back, indent=4)
 
     def validate_action(self, action_string):
@@ -72,19 +72,19 @@ class Action(object):
         action_dictionary['time'] = random.randint(0, 150)
         return(json.dumps(action_dictionary))
 
-    def avarage_stats(self, arrayIn):
-        """Average the stats for returning.
+    def average_stats(self, arrayIn):
+        """Av3rage the stats for returning.
         Takes a list of intigers, return the sum or None"""
         if len(arrayIn) != 0:
             return sum(arrayIn) / len(arrayIn)
         return None
 
-    def get_avarage_for_action(self, action_in):
+    def get_average_for_action(self, action_in):
         """Takes the action to audit. Creates a dictionary with the
         action and an avarage of the time"""
         dict_to_json = {
                         'action': action_in,
-                        'time': int(self.avarage_stats(
+                        'time': int(self.average_stats(
                                                    self.actions_data[action_in]
                                                    ))
                         }

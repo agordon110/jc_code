@@ -20,8 +20,8 @@ def do_method(action_object, *args):
 
 def main():
     """Action object is is created. We then loop a range generating
-    new action strings. Half way through we make a call to getStats.
-    Threading is intended to try and exersise the concurency protection"""
+    new action strings. Halfway through we make a call to getStats.
+    Threading is intended to try and exersise the concurrency protection"""
     action = Action()
     # Pad by one to support calling for stats in the middle
     loop_count = 0

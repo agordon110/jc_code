@@ -7,7 +7,7 @@ class TestAction(unittest.TestCase):
 
     action = Action()
 
-    # Test data. Gets encoded to json durning testing
+    # Test data. Gets encoded to json during testing
     json_array = [1, 2, 3]
 
     good_json = {"action": "jump", "time": 57}
@@ -25,7 +25,7 @@ class TestAction(unittest.TestCase):
         # Verify we decode dictionary by feeding it an array
         self.assertIsNotNone(self.action.addAction(
             json.dumps(self.json_array)))
-        # Basic set of tests for actions. No where near exhaustive
+        # Basic set of tests for actions. Nowhere near exhaustive
         self.assertIsNone(self.action.addAction(json.dumps(self.good_json)))
         # try with no action
         self.assertIsNone(self.action.addAction(json.dumps(self.good_json)))
@@ -42,7 +42,7 @@ class TestAction(unittest.TestCase):
             json.dumps(self.negative_time)))
 
     def test_getStats(self):
-        """Test getStats by feeding it a know quantity"""
+        """Test getStats by feeding it a known quantity"""
         self.action.action_types = ['jump', 'run']
         self.action.addAction(json.dumps(self.good_json))
         # getStat returns an array and in testing we only care about enty 0

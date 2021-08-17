@@ -17,8 +17,9 @@ To run unittest framework tests
 # Design Decisions
 Chose to not accept any arbitrary actions and chose to create an allow list in the Action object.
 
-addAction only records new actions. Chose to have the calculations generated in the getStats method
+addAction only records new actions. Chose to have the calculations generated in the getStats method. This could easily be changeged and have the addAction method keep a dictionary of running sum's
 
 # Testing
 Basic testing using python unittest framework.
+
 Linting using flake8

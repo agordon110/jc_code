@@ -25,7 +25,7 @@ def main():
     action = Action()
     # Pad by one to support calling for stats in the middle
     loop_count = 0
-    for i in range(0, 11):
+    for i in range(0, 100):
         # Spawn work threads. When calling do_method we pass the action object
         # and a json string to trigger addition instead of getting stats
         if i == 5:
@@ -42,7 +42,7 @@ def main():
                                             )
         # Start the thread and join so we wait til done.
         thread_object.start()
-        thread_object.join()
+        # thread_object.join()
         loop_count += 1
 
     # Final Check of the stats

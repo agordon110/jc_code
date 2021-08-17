@@ -12,12 +12,14 @@ To run the demo script
 
 To run unittest framework tests
 
-	python test_Action.py_
+	python test_Action.py
 
 # Design Decisions
-Chose to not accept any arbitrary actions and chose to create an allow list in the Action object.
+Chose to not accept any arbitrary actions and instead opted to create an allow list in the Action object.
 
 addAction only records new actions. Chose to have the calculations generated in the getStats method. This could easily be changeged and have the addAction method keep a dictionary of running sum's
+
+Maintained Camel case of addAction and getStats in case you grep for them.
 
 # Testing
 Basic testing using python unittest framework.

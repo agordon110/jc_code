@@ -18,7 +18,7 @@ To run unittest framework script
 # Design Decisions
 Chose to not accept any arbitrary actions and instead opted to create an allow list in the Action object.
 
-addAction only records new actions. Chose to have the calculations generated in the getStats method. This could easily be changeged and have the addAction method keep a running value.
+addAction only records new actions. Chose to have the calculations generated in the getStats method. This could easily be changeged and have the addAction method keep a dictionary of running avarages.
 
 Maintained Camel case of addAction and getStats in case you grep for them.
 

@@ -42,11 +42,11 @@ class Action(object):
 
     def validate_action(self, action_string):
         """Takes an action string and verifies that it
-        • Converts from JSON to a dictionary
-        • Contains the correct keys
-        • Validates the action
-        • Check time for positive int
-        Returns the validated action and time"""
+        - Converts from JSON to a dictionary
+        - Contains the correct keys
+        - Validates the action
+        - Check time for positive int
+        - Returns the validated action and time"""
         self.json_data = json.loads(action_string)
         if not isinstance(self.json_data, dict):
             raise TypeError("String did not generate a dictionary")

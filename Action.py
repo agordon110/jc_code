@@ -49,7 +49,6 @@ class Action(object):
         self.json_data = json.loads(action_string)
         if not isinstance(self.json_data, dict):
             raise TypeError("String did not generate a dictionary")
-
         action = self.json_data.get('action')
         time = self.json_data.get('time')
         if action is None or time is None:
@@ -57,14 +56,10 @@ class Action(object):
                             "Time Type %s. Action Type %s"
                             % (type(time), type(action))
                             )
-
+        if len(self.action_types) == 0:
+            raise TypeError("Action type array is empty")
         if action not in self.action_types:
-            print("Did not find action")
-#         print("DDD %s" % len(self.action_types) )
-#         if len(self.action_types) > 0 or action not in self.action_types:
-#             raise ValueError("%s is not an accepted action" % action)
-
-        # if type(time) != type(int()) or time < 0:
+            raise ValueError("Action %s not in action types" % action)
         if not isinstance(time, int):
             raise ValueError("Bad Time %s" % time)
         return action, time

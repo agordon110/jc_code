@@ -16,7 +16,7 @@ To run unittest framework script
 	python test_Action.py
 
 # Design Decisions
-Chose to not accept any arbitrary actions and instead opted to create an allow list in the Action object.
+Chose to not accept any arbitrary actions and instead opted to create an allow list in the Action object. This list is also used by the script and object to generate test actions.
 
 addAction only records new actions. Chose to have the calculations generated in the getStats method. This could easily be changeged and have the addAction method keep a dictionary of running avarages.
 
